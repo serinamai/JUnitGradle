@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-              cmd_exec('gradle check')
+              cmd_exec('gradle test')
             }
         }
     }
     post {
         always {
-            junit 'build/reports/**/*.xml'
+            junit 'build/test-results/**/*.xml'
         }
     }
 }
