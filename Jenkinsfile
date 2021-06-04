@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+    		LOG_JUNIT_RESULTS = 'true'
+    }
     stages {
         stage('Test') {
             steps {
