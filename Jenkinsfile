@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-              cmd_exec('gradle test')
+//               cmd_exec('gradle test')
+              bat 'gradle test --no-daemon'
+              junit '**/build/test-results/test/*.xml'
+              returnStdout: true
             }
         }
     }
@@ -14,6 +17,6 @@ pipeline {
         }
     }
 }
-def cmd_exec(command) {
-    return bat(script: "${command}", returnStdout: true).trim()
-}
+// def cmd_exec(command) {
+//     return bat(script: "${command}", returnStdout: true).trim()
+// }
