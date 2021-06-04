@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-    		LOG_JUNIT_RESULTS = 'true'
-    }
     stages {
         stage('Test') {
             steps {
@@ -12,7 +9,8 @@ pipeline {
     }
     post {
         always {
-            junit 'build/test-results/**/*.xml'
+//             junit 'build/test-results/**/*.xml'
+            junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml', keepLongStdio: true
         }
     }
 }
