@@ -10,7 +10,7 @@ pipeline {
     post {
         always {
             junit keepLongStdio: true,
-            testDataPublishers: [[$class: 'TestReporter']],
+            testDataPublishers: [[$class: 'JunitResultPublisher']],
             testResults: '*.xml'
         }
     }
