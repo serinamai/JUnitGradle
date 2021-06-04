@@ -10,10 +10,10 @@ pipeline {
     post {
         always {
             junit keepLongStdio: true,
-            testResults: 'build/reports/tests/test/index.html'
+            testResults: 'build/test-results/test/*.xml'
         }
     }
 }
 def cmd_exec(command) {
-    return bat(returnStdout: true, script: "${command}").trim()
+    return bat(script: "${command}", returnStdout: true).trim()
 }
