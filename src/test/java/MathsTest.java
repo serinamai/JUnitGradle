@@ -15,7 +15,7 @@ public class MathsTest {
     public void subtraction() {
         int a = 5;
         int b = 2;
-        assert maths.subtract(a, b) == 2;
+        assert maths.subtract(a, b) == 3;
     }
 
     @Test
