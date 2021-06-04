@@ -4,7 +4,7 @@ pipeline {
         stage('Test') {
             steps {
               cmd_exec('gradle test')
-              junit '**/build/test-results/test/*.xml'
+              @echo off
             }
         }
     }
@@ -16,8 +16,8 @@ pipeline {
     }
 }
 def cmd_exec(command) {
-       stdout = bat(returnStdout:true , script: command).trim()
-       result = stdout.readLines().drop(1).join(" ")
-       return result
-//     return bat(script: "${command}", returnStdout: true).trim()
+//        stdout = bat(returnStdout:true , script: command).trim()
+//        result = stdout.readLines().drop(1).join(" ")
+//        return result
+    return bat(script: "${command}", returnStdout: true).trim()
 }
