@@ -9,8 +9,9 @@ pipeline {
     }
     post {
         always {
-//             junit 'build/test-results/**/*.xml'
-            junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml', keepLongStdio: true
+            junit keepLongStdio: true,
+            testDataPublishers: [[$class: 'TestReporter']],
+            testResults: '*.xml'
         }
     }
 }
