@@ -1,21 +1,24 @@
 pipeline {
     agent any
-    environment {
-    		LOG_JUNIT_RESULTS = 'true'
-    }
     stages {
         stage('Test') {
             steps {
-              cmd_exec('gradle test')
+//               cmd_exec('gradle test')
+              sh(returnStdout: true, script: 'gradle clean test > logs.txt')
+              echo readFile('logs.txt')
             }
         }
     }
     post {
         always {
-            junit 'build/test-results/**/*.xml'
+            junit keepLongStdio: true,
+            testResults: 'build/test-results/test/*.xml'
         }
     }
 }
 def cmd_exec(command) {
-    return bat(returnStdout: true, script: "${command}").trim()
+//        stdout = bat(returnStdout:true , script: command).trim()
+//        result = stdout.readLines().drop(1).join(" ")
+//        return result
+    return bat(script: "${command}", returnStdout: true).trim()
 }
