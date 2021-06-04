@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-              cmd_exec('gradle test')
-              echo off
+//               cmd_exec('gradle test')
+              sh(returnStdout: true, script: 'gradle test')
             }
         }
     }
