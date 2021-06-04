@@ -5,7 +5,7 @@ pipeline {
             steps {
 //               cmd_exec('gradle test')
               sh(returnStdout: true, script: 'gradle clean test > logs.txt')
-              readFile('logs.txt')
+              echo readFile('logs.txt')
             }
         }
     }
