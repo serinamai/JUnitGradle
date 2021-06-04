@@ -10,7 +10,7 @@ pipeline {
     post {
         always {
             junit keepLongStdio: true,
-            testResults: '*.xml'
+            testResults: 'build/reports/tests/test/index.html'
         }
     }
 }
