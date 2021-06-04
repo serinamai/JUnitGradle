@@ -4,7 +4,7 @@ pipeline {
         stage('Test') {
             steps {
               cmd_exec('gradle test')
-              @echo off
+              echo off
             }
         }
     }
