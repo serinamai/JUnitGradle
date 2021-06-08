@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-//               cmd_exec('gradle test')
               sh(returnStdout: true, script: 'gradle clean test > logs.txt')
               echo readFile('logs.txt')
             }
@@ -17,8 +16,5 @@ pipeline {
     }
 }
 def cmd_exec(command) {
-//        stdout = bat(returnStdout:true , script: command).trim()
-//        result = stdout.readLines().drop(1).join(" ")
-//        return result
-    return bat(script: "${command}", returnStdout: true).trim()
+    return bat(returnStdout:true , script: command).trim()
 }

@@ -1,5 +1,3 @@
-import org.junit.jupiter.api.Test;
-
 public class Maths {
     public int add(int a, int b) {
         return a + b;
@@ -16,7 +14,4 @@ public class Maths {
     public int multiple(int a, int b){
         return a * b;
     }
-
-
-
 }

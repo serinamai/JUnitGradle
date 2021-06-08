@@ -11,7 +11,6 @@ repositories {
 
 dependencies {
     implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-//    implementation(localGroovy())
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
@@ -21,9 +20,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
-
-    // Always run tests, even when nothing changed.
-//    dependsOn 'cleanTest'
 
     // Show test results.
     testLogging {
