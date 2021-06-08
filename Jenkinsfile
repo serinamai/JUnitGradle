@@ -4,7 +4,7 @@ pipeline {
         stage('Test') {
             steps {
               sh(returnStdout: true, script: 'gradle clean test > logs.txt')
-//               echo readFile('logs.txt')
+              echo readFile('logs.txt')
             }
         }
     }

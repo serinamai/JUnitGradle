@@ -22,7 +22,7 @@ test {
     useJUnitPlatform()
 
     // Show test results.
-    println testLogging {
+    testLogging {
         events "passed", "skipped", "failed"
     }
 }
