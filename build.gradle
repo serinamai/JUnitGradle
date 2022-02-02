@@ -16,7 +16,7 @@ dependencies {
 }
 
 
-tasks.withType(test) {
+tasks.withType(Test) {
     useJUnitPlatform()
 
     // Show test results.
