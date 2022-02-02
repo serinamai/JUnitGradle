@@ -18,8 +18,7 @@ dependencies {
 
 
 
-
-test {
+tasks.withType(test) {
     useJUnitPlatform()
 
     // Always run tests, even when nothing changed.
