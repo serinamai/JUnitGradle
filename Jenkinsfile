@@ -1,5 +1,21 @@
 pipeline {
     agent any
+    
+    parameters {
+        string(
+                name: 'BRANCH_NAME',
+                defaultValue: 'master',
+                description: 'Select branch i.e. my_feature_branch'
+        )
+        choice(
+                name: 'ENVIRONMENT',
+                choices: [
+                        'sit',
+                        'pre',
+                        'dev'
+                ],
+        )
+    }
     stages {
         stage('Test') {
             steps {
